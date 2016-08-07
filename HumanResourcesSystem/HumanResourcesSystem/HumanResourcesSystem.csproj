@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="EditHumanResources.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="HumanResources.cs" />
+    <Compile Include="IEmployee.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="ProjectManagement.cs" />
+    <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
