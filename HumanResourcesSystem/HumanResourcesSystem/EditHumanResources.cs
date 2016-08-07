@@ -36,10 +36,48 @@
             switch (selectedEditComand)
             {
                 case "1": EditEmployeeProject(); break;
-                case "2": ; break;
-                case "3": ; break;
+                case "2": EditEmployeeSalary(); break;
+                case "3": EditEmployeePosition(); break;
                 case "4": EndEditOptions(); break;
                 default: Console.Write("Please, select from the available options."); break;
+            }
+        }
+
+        private static void EditEmployeePosition()
+        {
+            //print all employee
+            HumanResources.PrintAllEmployee();
+            //Pick employeeId
+            Console.Write("Please select employee ID: ");
+            int employeeIDForEditPosition = int.Parse(Console.ReadLine());
+            // Change position
+            var listEmployee = HumanResources.GetEmployees();
+            foreach (var asd in listEmployee)
+            {
+                if (asd.EmployeeId == employeeIDForEditPosition)
+                {
+                    Console.Write("Please, select job position: ");
+                    asd.PositionAtWork = Console.ReadLine();
+                }
+            }
+        }
+
+        private static void EditEmployeeSalary()
+        {
+            //print all employee
+            HumanResources.PrintAllEmployee();
+            //Pick employeeId
+            Console.Write("Please select employee ID: ");
+            int employeeIDForEditSalary = int.Parse(Console.ReadLine());
+            // Set salary
+            var listEmployee = HumanResources.GetEmployees();
+            foreach (var asd in listEmployee)
+            {
+                if (asd.EmployeeId == employeeIDForEditSalary)
+                {
+                    Console.Write("Please, write salary in dollars: ");
+                    asd.Salary = double.Parse(Console.ReadLine());
+                }
             }
         }
 
@@ -47,7 +85,6 @@
         {
             
             //print all projects
-            Console.WriteLine("List of all projects:");
             ProjectManagement.PrintAllProjects();
             //print all employee
             Console.WriteLine("List of all employees");
@@ -81,10 +118,10 @@
             Console.WriteLine("******************************************");
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. Edit employee project");
-            Console.WriteLine("3. Edit employee salary");
-            Console.WriteLine("2. Edit employee job position");
+            Console.WriteLine("2. Edit employee salary");
+            Console.WriteLine("3. Edit employee job position");
             Console.WriteLine("4. To end changes");
-            Console.WriteLine("The program expects your input!");
+            Console.Write("The program expects your input: ");
         }
     }
 }

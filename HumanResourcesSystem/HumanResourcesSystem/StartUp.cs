@@ -60,7 +60,7 @@ namespace HumanResourcesSystem
             Console.WriteLine("2. For edit information for employee.");
             Console.WriteLine("3. For looking at the list of employees.");
             Console.WriteLine("4. For end of program.");
-            Console.WriteLine("The program expects your input!");
+            Console.Write("The program expects your input: ");
         }
 
     }

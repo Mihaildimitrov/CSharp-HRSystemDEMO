@@ -38,9 +38,10 @@
             {
                 throw new ArgumentNullException("No employees hired yet.");
             }
+            Console.WriteLine("List of all employees");
             foreach (var emp in allEmployees)
             {
-                Console.WriteLine("Name: {0} {1}, Position: {2}, Project: {3}, Salary: {4}, EmployeeID: {5}", emp.FirstName, emp.LastName, emp.PositionAtWork, emp.Project, emp.Salary, emp.EmployeeId);
+                Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, Salary: ${4}, EmployeeID: {5}", emp.FirstName, emp.LastName, emp.PositionAtWork, emp.Project, emp.Salary, emp.EmployeeId);
             }
         }
     }

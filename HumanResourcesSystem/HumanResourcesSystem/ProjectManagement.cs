@@ -29,6 +29,7 @@ namespace HumanResourcesSystem
         public static void PrintAllProjects()
         {
             var projects = ProjectManagement.GetProjects();
+            Console.WriteLine("List of all projects");
             foreach (var proj in projects)
             {
                 Console.WriteLine("{0} - {1}", proj.ProjectId, proj.ProjectName);
