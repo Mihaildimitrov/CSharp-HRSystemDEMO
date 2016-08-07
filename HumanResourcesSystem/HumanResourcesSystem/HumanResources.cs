@@ -8,12 +8,12 @@
 
     public static class HumanResources
     {
-        public static List<Employee> allEmployees = new List<Employee>();
+        public static List<IEmployee> allEmployees = new List<IEmployee>();
         private static int nextId = 1;
 
         public static void HireEmployee()
         {
-            Employee newEmployee = new Employee();
+            IEmployee newEmployee = new IEmployee();
             
             Console.Write("Please, enter the first name of the employee: ");
             // try catch
@@ -27,7 +27,7 @@
             nextId++;
         }
 
-        public static List<Employee> GetEmployees()
+        public static List<IEmployee> GetEmployees()
         {
             return allEmployees;
         }

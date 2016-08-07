@@ -32,13 +32,96 @@ namespace HumanResourcesSystem
         {
             switch (selectedSearchOptions)
             {
-                case "1": ; break;
-                case "2": ; break;
-                case "3": ; break;
-                case "4": ; break;
-                case "5": ; break;
-                case "6": ; break;
-                default: ; break;
+                case "1": HumanResources.PrintAllEmployee(); break;
+                case "2": ProjectManagement.PrintAllProjects(); break;
+                case "3": EmployeeWorkingProject(); break;
+                case "4": ImmediateSuperior(); break;
+                case "5": SearchByName(); break;
+                case "6": EndSearchOptions(); break;
+                default: Console.WriteLine("Please, select from the available options."); ; break;
+            }
+        }
+
+        private static void ImmediateSuperior()
+        {
+            HumanResources.PrintAllEmployee();
+            //Pick employeeId
+            Console.Write("Please select employee ID: ");
+            int employeeIDForSelect = int.Parse(Console.ReadLine());
+            foreach (var employee in HumanResources.allEmployees)
+	        {
+	            	if (employeeIDForSelect == employee.EmployeeId)
+	                {
+		                // pick employee position
+                        string positionEmployee = employee.PositionAtWork;
+                        CheckSuperior(positionEmployee.ToLower());
+	                } 
+
+	        }
+        }
+
+        private static void CheckSuperior(string positionEmployee)
+        {
+            
+            switch (positionEmployee)
+            {
+                case "trainee": Console.WriteLine("His supervisor is \"Team leader\""); break;
+                case "junior": Console.WriteLine("His supervisor is \"Team leader\""); break;
+                case "intermediate": Console.WriteLine("His supervisor is \"Team leader\""); break;
+                case "senior": Console.WriteLine("His supervisor is \"Team leader\""); break;
+                case "team leader": Console.WriteLine("His supervisor is \"Project manager\""); break;
+                case "project manager": Console.WriteLine("His supervisor is \"Delivery director\""); break;
+                case "delivery director": Console.WriteLine("His supervisor is \"CEO\""); break;
+                case "ceo": Console.WriteLine("He has no supervisor"); break;
+            }
+        }
+
+        private static void SearchByName()
+        {
+            Console.Write("Please enter the firstname and the lastname of employee:");
+            string employeeName = Console.ReadLine();
+
+            foreach (var employee in HumanResources.allEmployees)
+            {
+                if (employeeName == employee.FirstName + employee.LastName)
+                {
+                    Console.WriteLine("Employee with this name exist");
+                    Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, Salary: ${4}, EmployeeID: {5}",
+                        employee.FirstName, employee.LastName, employee.PositionAtWork, employee.Project, employee.Salary, employee.EmployeeId);
+                }
+                else
+                {
+                    Console.WriteLine("Employee with this name does not exist");
+                }
+            }
+
+
+
+        }
+
+        private static void EndSearchOptions()
+        {
+            endSearch = false;
+            Console.WriteLine("The end of search!");
+        }
+
+        private static void EmployeeWorkingProject()
+        {
+            ProjectManagement.PrintAllProjects();
+            //Pick project ID
+            var allprojects = ProjectManagement.GetProjects();
+            Console.Write("Please select project ID: ");
+            int selectProjectId = int.Parse(Console.ReadLine());
+            foreach (var project in allprojects)
+            {
+                if (selectProjectId == project.ProjectId)
+                {
+                    Console.WriteLine("These employees work on the project:");
+                    foreach (var employee in project.AssignedEmployees)
+                    {
+                        Console.WriteLine("{0} {1} ", employee.FirstName, employee.LastName);
+                    }
+                }
             }
         }
 

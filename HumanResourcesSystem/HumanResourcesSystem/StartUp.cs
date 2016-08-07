@@ -23,10 +23,9 @@ namespace HumanResourcesSystem
                 {
                     HandleInput(selectedCommand);
                 }
-                catch (Exception)
+                catch (ArgumentNullException exMesage)
                 {
-                    
-                    throw;
+                    Console.WriteLine(exMesage.Message);
                 }
 
             } while (endProgram);
@@ -38,7 +37,7 @@ namespace HumanResourcesSystem
             {
                 case "1": HumanResources.HireEmployee(); break;
                 case "2": EditHumanResources.EditEmployee(); break;
-                case "3": ; break;
+                case "3": SearchEmployeeOptions.SearchOptions(); break;
                 case "4": EndManagementSystem(); break;
                 default: Console.WriteLine("Please, select from the available options."); break;
             }
