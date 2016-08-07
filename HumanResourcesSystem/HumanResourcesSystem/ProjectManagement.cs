@@ -32,7 +32,7 @@ namespace HumanResourcesSystem
             Console.WriteLine("List of all projects");
             foreach (var proj in projects)
             {
-                Console.WriteLine("{0} - {1}", proj.ProjectId, proj.ProjectName);
+                Console.WriteLine("ProjectID: {0} - Project name: {1}", proj.ProjectId, proj.ProjectName);
             }
         }
     }

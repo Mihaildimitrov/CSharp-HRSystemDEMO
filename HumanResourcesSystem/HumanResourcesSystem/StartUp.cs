@@ -58,7 +58,7 @@ namespace HumanResourcesSystem
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. For apointed staff.");
             Console.WriteLine("2. For edit information for employee.");
-            Console.WriteLine("3. For looking at the list of employees.");
+            Console.WriteLine("3. For options search in employees and projects.");
             Console.WriteLine("4. For end of program.");
             Console.Write("The program expects your input: ");
         }

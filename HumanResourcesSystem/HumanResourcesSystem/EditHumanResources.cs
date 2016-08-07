@@ -52,12 +52,12 @@
             int employeeIDForEditPosition = int.Parse(Console.ReadLine());
             // Change position
             var listEmployee = HumanResources.GetEmployees();
-            foreach (var asd in listEmployee)
+            foreach (var employee in listEmployee)
             {
-                if (asd.EmployeeId == employeeIDForEditPosition)
+                if (employee.EmployeeId == employeeIDForEditPosition)
                 {
                     Console.Write("Please, select job position: ");
-                    asd.PositionAtWork = Console.ReadLine();
+                    employee.PositionAtWork = Console.ReadLine();
                 }
             }
         }
@@ -71,12 +71,12 @@
             int employeeIDForEditSalary = int.Parse(Console.ReadLine());
             // Set salary
             var listEmployee = HumanResources.GetEmployees();
-            foreach (var asd in listEmployee)
+            foreach (var employee in listEmployee)
             {
-                if (asd.EmployeeId == employeeIDForEditSalary)
+                if (employee.EmployeeId == employeeIDForEditSalary)
                 {
                     Console.Write("Please, write salary in dollars: ");
-                    asd.Salary = double.Parse(Console.ReadLine());
+                    employee.Salary = double.Parse(Console.ReadLine());
                 }
             }
         }
@@ -87,7 +87,6 @@
             //print all projects
             ProjectManagement.PrintAllProjects();
             //print all employee
-            Console.WriteLine("List of all employees");
             HumanResources.PrintAllEmployee();
             Console.WriteLine("Assign to project: ");
             //Pick employeeId
@@ -98,11 +97,14 @@
             int selectProjectId = int.Parse(Console.ReadLine());
             // set project!!!!!!!!!!!
             var listEmployee = HumanResources.GetEmployees();
-            foreach (var asd in listEmployee)
+            foreach (var employee in listEmployee)
             {
-                if (asd.EmployeeId == employeeIDForEditProject)
+                if (employee.EmployeeId == employeeIDForEditProject)
                 {
-                    asd.Project = selectProjectId;
+                    //var proj = ProjectManagement.GetProjects().FirstOrDefault()
+                    //other options is a cycle
+                    employee.Project = selectProjectId;
+                    ProjectManagement.AssignEmployee(selectProjectId, employee);
                 }
             }
         }
@@ -117,10 +119,10 @@
         {
             Console.WriteLine("******************************************");
             Console.WriteLine("Please, select from the following options:");
-            Console.WriteLine("1. Edit employee project");
-            Console.WriteLine("2. Edit employee salary");
-            Console.WriteLine("3. Edit employee job position");
-            Console.WriteLine("4. To end changes");
+            Console.WriteLine("1. Edit employee project.");
+            Console.WriteLine("2. Edit employee salary.");
+            Console.WriteLine("3. Edit employee job position.");
+            Console.WriteLine("4. To end changes.");
             Console.Write("The program expects your input: ");
         }
     }
