@@ -9,14 +9,15 @@
     public static class EditHumanResources
     {
         public static bool endOfEdit = true;
+        //Method for edit employee.
         public static void EditEmployee()
         {
-
             string selectedEditProgram;
 
             do
             {
                 EditMenu();
+                //Current selected command.
                 selectedEditProgram = Console.ReadLine();
                 try
                 {
@@ -30,7 +31,7 @@
 
             } while (endOfEdit);
         }
-
+        //This method is a main logic for edit employee.
         private static void HandleEditInput(string selectedEditComand)
         {
             switch (selectedEditComand)
@@ -42,15 +43,16 @@
                 default: Console.Write("Please, select from the available options."); break;
             }
         }
-
+        //Edit employee job position.
         private static void EditEmployeePosition()
         {
-            //print all employee
+            Console.Clear();
+            //Print all employee.
             HumanResources.PrintAllEmployee();
-            //Pick employeeId
+            //Pick employeeId.
             Console.Write("Please select employee ID: ");
             int employeeIDForEditPosition = int.Parse(Console.ReadLine());
-            // Change position
+            // Change position.
             var listEmployee = HumanResources.GetEmployees();
             foreach (var employee in listEmployee)
             {
@@ -61,15 +63,16 @@
                 }
             }
         }
-
+        //Edit employee salary.
         private static void EditEmployeeSalary()
         {
-            //print all employee
+            Console.Clear();
+            //Print all employee.
             HumanResources.PrintAllEmployee();
-            //Pick employeeId
+            //Pick employeeId.
             Console.Write("Please select employee ID: ");
             int employeeIDForEditSalary = int.Parse(Console.ReadLine());
-            // Set salary
+            // Set salary.
             var listEmployee = HumanResources.GetEmployees();
             foreach (var employee in listEmployee)
             {
@@ -80,13 +83,13 @@
                 }
             }
         }
-
+        // Assign project 
         private static void EditEmployeeProject()
         {
-            
-            //print all projects
+            Console.Clear();
+            //Print all projects
             ProjectManagement.PrintAllProjects();
-            //print all employee
+            //Print all employee
             HumanResources.PrintAllEmployee();
             Console.WriteLine("Assign to project: ");
             //Pick employeeId
@@ -95,34 +98,34 @@
             //Pick project ID
             Console.Write("Please select project ID: ");
             int selectProjectId = int.Parse(Console.ReadLine());
-            // set project!!!!!!!!!!!
+            //Set project.
             var listEmployee = HumanResources.GetEmployees();
             foreach (var employee in listEmployee)
             {
                 if (employee.EmployeeId == employeeIDForEditProject)
                 {
-                    //var proj = ProjectManagement.GetProjects().FirstOrDefault()
-                    //other options is a cycle
                     employee.Project = selectProjectId;
                     ProjectManagement.AssignEmployee(selectProjectId, employee);
                 }
             }
         }
-
+        // End edit menu.
         private static void EndEditOptions()
         {
             endOfEdit = false;
             Console.WriteLine("The end of change!");
         }
-
+        //Print edit menu.
         public static void EditMenu()
         {
+            Console.Clear();
             Console.WriteLine("******************************************");
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. Edit employee project.");
             Console.WriteLine("2. Edit employee salary.");
             Console.WriteLine("3. Edit employee job position.");
             Console.WriteLine("4. To end changes.");
+            Console.WriteLine("******************************************");
             Console.Write("The program expects your input: ");
         }
     }

@@ -8,6 +8,7 @@
 
     public class Project
     {
+        //all prop for any project.
         public int ProjectId { get; set; }
 
         public string ProjectName { get; set; }

@@ -9,16 +9,15 @@ namespace HumanResourcesSystem
     class StartUp
     {
         public static bool endProgram = true;
-
         static void Main()
         {
             string selectedCommand;
-            
             do
             {
+                //Print main menu
                 PrintMainMenu();
+                // main logic program.
                 selectedCommand = Console.ReadLine();
-
                 try
                 {
                     HandleInput(selectedCommand);
@@ -27,10 +26,9 @@ namespace HumanResourcesSystem
                 {
                     Console.WriteLine(exMesage.Message);
                 }
-
             } while (endProgram);
         }
-
+        // Main method program.
         private static void HandleInput(string selectedCommand)
         {
             switch (selectedCommand)
@@ -42,23 +40,24 @@ namespace HumanResourcesSystem
                 default: Console.WriteLine("Please, select from the available options."); break;
             }
         }
-
+        //method which end the program.
         private static void EndManagementSystem()
         {
             endProgram = false;
+            Console.Clear();
             Console.WriteLine("The application was stopped!");
         }
-
-        
-
+        // method which print main menu.
         public static void PrintMainMenu()
         {
+            Console.Clear();
             Console.WriteLine("*******************************************");
             Console.WriteLine("Please, select from the following options:");
-            Console.WriteLine("1. For apointed staff.");
+            Console.WriteLine("1. For add employee.");
             Console.WriteLine("2. For edit information for employee.");
             Console.WriteLine("3. For options search in employees and projects.");
             Console.WriteLine("4. For end of program.");
+            Console.WriteLine("*******************************************");
             Console.Write("The program expects your input: ");
         }
 
