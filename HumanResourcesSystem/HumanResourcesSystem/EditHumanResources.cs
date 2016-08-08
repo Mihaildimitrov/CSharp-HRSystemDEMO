@@ -119,13 +119,17 @@
         public static void EditMenu()
         {
             Console.Clear();
-            Console.WriteLine("******************************************");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("*******************************************");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. Edit employee project.");
             Console.WriteLine("2. Edit employee salary.");
             Console.WriteLine("3. Edit employee job position.");
             Console.WriteLine("4. To end changes.");
-            Console.WriteLine("******************************************");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("*******************************************");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("The program expects your input: ");
         }
     }

@@ -28,12 +28,12 @@
             {
                 case "1": Console.Clear(); 
                     HumanResources.PrintAllEmployee();
-                    Console.Write("Press any key to continue");
+                    Console.Write("Press any key to continue:");
                     Console.ReadKey(); 
                     break;
                 case "2": Console.Clear();
                     ProjectManagement.PrintAllProjects();
-                    Console.Write("Press any key to continue");
+                    Console.Write("Press any key to continue:");
                     Console.ReadKey(); 
                     break;
                 case "3": EmployeeWorkingProject(); break;
@@ -51,6 +51,12 @@
             //Pick employeeId.
             Console.Write("Please select employee ID: ");
             int employeeIDForSelect = int.Parse(Console.ReadLine());
+            if (employeeIDForSelect > HumanResources.allEmployees.Count)
+            {
+                Console.WriteLine("No such employee!");
+                Console.Write("Press any key to continue:");
+                Console.ReadKey();
+            }
             foreach (var employee in HumanResources.allEmployees)
 	        {
 	            	if (employeeIDForSelect == employee.EmployeeId)
@@ -59,8 +65,9 @@
                         string positionEmployee = employee.PositionAtWork;
                         //check superior.
                         CheckSuperior(positionEmployee.ToLower());
-	                } 
+	                }
 	        }
+            
         }
         // method print immediate superior.
         private static void CheckSuperior(string positionEmployee)
@@ -77,7 +84,7 @@
                 case "ceo": Console.WriteLine("He has no supervisor"); break;
                 default: Console.WriteLine("This employee position does not exist in the company."); break;
             }
-            Console.Write("Press any key to continue");
+            Console.Write("Press any key to continue:");
             Console.ReadKey();
         }
         // this method searching in list employee by name.
@@ -95,14 +102,14 @@
                     Console.WriteLine("Employee with this name exist");
                     Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, Salary: ${4}, EmployeeID: {5}",
                         employee.FirstName, employee.LastName, employee.PositionAtWork, employee.Project, employee.Salary, employee.EmployeeId);
-                    Console.Write("Press any key to continue");
+                    Console.Write("Press any key to continue:");
                     Console.ReadKey();
                 }
                     // If the name does not exist.
                 else
                 {
                     Console.WriteLine("Employee with this name does not exist");
-                    Console.Write("Press any key to continue");
+                    Console.Write("Press any key to continue:");
                     Console.ReadKey();
                 }
             }
@@ -133,13 +140,13 @@
                         {
                             Console.WriteLine("{0} {1} ", employee.FirstName, employee.LastName);
                         }
-                        Console.Write("Press any key to continue");
+                        Console.Write("Press any key to continue:");
                         Console.ReadKey();
                     }
                     else
                     {
                         Console.WriteLine("No employees work on the project.");
-                        Console.Write("Press any key to continue");
+                        Console.Write("Press any key to continue:");
                         Console.ReadKey();
                     }
                 }
@@ -149,7 +156,9 @@
         private static void SearchMenu()
         {
             Console.Clear();
-            Console.WriteLine("******************************************");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("*******************************************");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. Print all employee.");
             Console.WriteLine("2. Print all projects.");
@@ -157,7 +166,9 @@
             Console.WriteLine("4. Print immediate superior.");
             Console.WriteLine("5. Search employee by name");
             Console.WriteLine("6. To end search");
-            Console.WriteLine("******************************************");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("*******************************************");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("The program expects your input: ");
         }
 

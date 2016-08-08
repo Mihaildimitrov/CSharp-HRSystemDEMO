@@ -45,19 +45,25 @@ namespace HumanResourcesSystem
         {
             endProgram = false;
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("The application was stopped!");
+            Console.ForegroundColor = ConsoleColor.White;
         }
         // method which print main menu.
         public static void PrintMainMenu()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("*******************************************");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. For add employee.");
             Console.WriteLine("2. For edit information for employee.");
             Console.WriteLine("3. For options search in employees and projects.");
             Console.WriteLine("4. For end of program.");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("*******************************************");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("The program expects your input: ");
         }
 
