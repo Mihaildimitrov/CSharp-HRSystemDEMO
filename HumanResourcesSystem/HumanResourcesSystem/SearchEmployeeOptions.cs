@@ -156,7 +156,7 @@
         private static void SearchMenu()
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
@@ -166,7 +166,7 @@
             Console.WriteLine("4. Print immediate superior.");
             Console.WriteLine("5. Search employee by name");
             Console.WriteLine("6. To end search");
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("The program expects your input: ");

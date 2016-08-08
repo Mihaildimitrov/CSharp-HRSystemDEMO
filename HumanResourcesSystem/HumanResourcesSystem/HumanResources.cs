@@ -39,7 +39,7 @@
             {
                 throw new ArgumentNullException("No employees hired yet.");
             }
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("List of all employees:");

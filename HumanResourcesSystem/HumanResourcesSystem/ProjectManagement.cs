@@ -30,7 +30,7 @@ namespace HumanResourcesSystem
         public static void PrintAllProjects()
         {
             var projects = ProjectManagement.GetProjects();
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("List of all projects:");

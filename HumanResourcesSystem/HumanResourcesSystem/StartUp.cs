@@ -53,7 +53,7 @@ namespace HumanResourcesSystem
         public static void PrintMainMenu()
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
@@ -61,7 +61,7 @@ namespace HumanResourcesSystem
             Console.WriteLine("2. For edit information for employee.");
             Console.WriteLine("3. For options search in employees and projects.");
             Console.WriteLine("4. For end of program.");
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("The program expects your input: ");
