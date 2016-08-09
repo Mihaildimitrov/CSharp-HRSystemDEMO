@@ -19,15 +19,7 @@
                 EditMenu();
                 //Current selected command.
                 selectedEditProgram = Console.ReadLine();
-                try
-                {
-                    HandleEditInput(selectedEditProgram);
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
+                HandleEditInput(selectedEditProgram);
 
             } while (endOfEdit);
         }

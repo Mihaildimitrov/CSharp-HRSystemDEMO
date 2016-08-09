@@ -18,14 +18,8 @@ namespace HumanResourcesSystem
                 PrintMainMenu();
                 // main logic program.
                 selectedCommand = Console.ReadLine();
-                try
-                {
-                    HandleInput(selectedCommand);
-                }
-                catch (ArgumentNullException exMesage)
-                {
-                    Console.WriteLine(exMesage.Message);
-                }
+                HandleInput(selectedCommand);
+                
             } while (endProgram);
         }
         // Main method program.
@@ -65,6 +59,13 @@ namespace HumanResourcesSystem
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("The program expects your input: ");
+        }
+
+        public static void PrintCommand()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("Press any key to continue:");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
     }

@@ -28,13 +28,17 @@
             {
                 case "1": Console.Clear(); 
                     HumanResources.PrintAllEmployee();
-                    Console.Write("Press any key to continue:");
-                    Console.ReadKey(); 
+                    StartUp.PrintCommand();
+                    Console.ReadKey();
+                    Console.WriteLine();
+                    Console.Clear(); 
                     break;
                 case "2": Console.Clear();
                     ProjectManagement.PrintAllProjects();
-                    Console.Write("Press any key to continue:");
-                    Console.ReadKey(); 
+                    StartUp.PrintCommand();
+                    Console.ReadKey();
+                    Console.WriteLine();
+                    Console.Clear(); 
                     break;
                 case "3": EmployeeWorkingProject(); break;
                 case "4": ImmediateSuperior(); break;
@@ -54,7 +58,7 @@
             if (employeeIDForSelect > HumanResources.allEmployees.Count)
             {
                 Console.WriteLine("No such employee!");
-                Console.Write("Press any key to continue:");
+                StartUp.PrintCommand();
                 Console.ReadKey();
             }
             foreach (var employee in HumanResources.allEmployees)
@@ -84,8 +88,10 @@
                 case "ceo": Console.WriteLine("He has no supervisor"); break;
                 default: Console.WriteLine("This employee position does not exist in the company."); break;
             }
-            Console.Write("Press any key to continue:");
+            StartUp.PrintCommand();
             Console.ReadKey();
+            Console.WriteLine();
+            Console.Clear(); 
         }
         // this method searching in list employee by name.
         private static void SearchByName()
@@ -97,20 +103,23 @@
             // Check the name exist.
             foreach (var employee in HumanResources.allEmployees)
             {
-                if (employeeName == employee.FirstName + employee.LastName)
+                if (employeeName.ToLower() == employee.FirstName.ToLower() + " " + employee.LastName.ToLower())
                 {
-                    Console.WriteLine("Employee with this name exist");
-                    Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, Salary: ${4}, EmployeeID: {5}",
+                    Console.WriteLine("Employee with this name exist:");
+                    Console.WriteLine("Name: {0} {1}, Position: {2}, WorkingProjectID: {3}, Salary: ${4}, EmployeeID: {5}",
                         employee.FirstName, employee.LastName, employee.PositionAtWork, employee.Project, employee.Salary, employee.EmployeeId);
-                    Console.Write("Press any key to continue:");
+                    StartUp.PrintCommand();
                     Console.ReadKey();
+                    Console.WriteLine();
+                    Console.Clear(); 
                 }
-                    // If the name does not exist.
-                else
+                else// If the name does not exist.
                 {
                     Console.WriteLine("Employee with this name does not exist");
-                    Console.Write("Press any key to continue:");
+                    StartUp.PrintCommand();
                     Console.ReadKey();
+                    Console.WriteLine();
+                    Console.Clear(); 
                 }
             }
         }
@@ -140,14 +149,18 @@
                         {
                             Console.WriteLine("{0} {1} ", employee.FirstName, employee.LastName);
                         }
-                        Console.Write("Press any key to continue:");
+                        StartUp.PrintCommand();
                         Console.ReadKey();
+                        Console.WriteLine();
+                        Console.Clear(); 
                     }
                     else
                     {
                         Console.WriteLine("No employees work on the project.");
-                        Console.Write("Press any key to continue:");
+                        StartUp.PrintCommand();
                         Console.ReadKey();
+                        Console.WriteLine();
+                        Console.Clear(); 
                     }
                 }
             }
@@ -155,7 +168,6 @@
         // Print search menu.
         private static void SearchMenu()
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;

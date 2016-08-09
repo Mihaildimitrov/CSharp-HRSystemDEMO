@@ -44,7 +44,6 @@
     <Compile Include="EditHumanResources.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="HumanResources.cs" />
-    <Compile Include="IEmployee.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectManagement.cs" />
     <Compile Include="SearchEmployeeOptions.cs" />

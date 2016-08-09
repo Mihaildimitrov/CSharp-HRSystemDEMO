@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Employee : IEmployee
+    public class Employee
     {
         // Fields for employee
         private string firstName;

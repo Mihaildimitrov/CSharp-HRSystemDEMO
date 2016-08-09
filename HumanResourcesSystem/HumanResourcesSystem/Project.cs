@@ -13,6 +13,6 @@
 
         public string ProjectName { get; set; }
 
-        public List<IEmployee> AssignedEmployees { get; set; }
+        public List<Employee> AssignedEmployees { get; set; }
     }
 }

@@ -9,13 +9,13 @@
     public static class HumanResources
     {
         //this list contains all emlpoyee in company.
-        public static List<IEmployee> allEmployees = new List<IEmployee>();
+        public static List<Employee> allEmployees = new List<Employee>();
         //Employee ID
         private static int nextId = 1;
 
         public static void HireEmployee()
         {
-            IEmployee newEmployee = new IEmployee();
+            Employee newEmployee = new Employee();
             // Form for create Employee.
             Console.Write("Please, enter the first name of the employee: ");
             newEmployee.FirstName = Console.ReadLine();
@@ -28,24 +28,27 @@
             nextId++;
         }
         // This method return list of all employee.
-        public static List<IEmployee> GetEmployees()
+        public static List<Employee> GetEmployees()
         {
             return allEmployees;
         }
         //Print all emlpoyee.
         public static void PrintAllEmployee()
         {
-            if (allEmployees.Count < 1)
-            {
-                throw new ArgumentNullException("No employees hired yet.");
-            }
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("List of all employees:");
-            foreach (var emp in allEmployees)
+            if (allEmployees.Count < 1)
             {
-                Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, Salary: ${4}, EmployeeID: {5}", emp.FirstName, emp.LastName, emp.PositionAtWork, emp.Project, emp.Salary, emp.EmployeeId);
+                Console.WriteLine("No employees hired yet.");
+            }
+            else
+            {
+                Console.WriteLine("List of all employees:");
+                foreach (var emp in allEmployees)
+                {
+                    Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, Salary: ${4}, EmployeeID: {5}", emp.FirstName, emp.LastName, emp.PositionAtWork, emp.Project, emp.Salary, emp.EmployeeId);
+                }
             }
         }
     }
