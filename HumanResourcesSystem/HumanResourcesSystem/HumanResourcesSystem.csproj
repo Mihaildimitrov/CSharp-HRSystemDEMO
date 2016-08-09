@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditHumanResources.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="HumanResources.cs" />
-    <Compile Include="Project.cs" />
-    <Compile Include="ProjectManagement.cs" />
-    <Compile Include="SearchEmployeeOptions.cs" />
+    <Compile Include="HumanResourcesOptions\EditHumanResources.cs" />
+    <Compile Include="HumanResourcesOptions\HumanResources.cs" />
+    <Compile Include="ProjectInfo\Project.cs" />
+    <Compile Include="ProjectInfo\ProjectManagement.cs" />
+    <Compile Include="SearchOptions.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

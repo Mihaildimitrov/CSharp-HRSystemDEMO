@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HumanResourcesSystem
+﻿namespace HumanResourcesSystem.ProjectInfo
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using HumanResourcesSystem;
+
     public static class ProjectManagement
     {
         //List of projects.
@@ -26,9 +27,9 @@ namespace HumanResourcesSystem
             foreach (var proj in projects)
             {
                 if (proj.ProjectId == projectId)
-	            {
+                {
                     proj.AssignedEmployees.Add(employee);
-	            }
+                }
             }
             //var project = projects.FirstOrDefault(p => p.ProjectId == projectId);
             //project.AssignedEmployees.Add(employee);

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HumanResourcesSystem
+﻿namespace HumanResourcesSystem
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using ProjectInfo;
+    using HumanResourcesOptions;
+
     class StartUp
     {
         public static bool endProgram = true;
@@ -29,12 +31,12 @@ namespace HumanResourcesSystem
             {
                 case "1": HumanResources.HireEmployee(); break;
                 case "2": EditHumanResources.EditEmployee(); break;
-                case "3": SearchEmployeeOptions.SearchOptions(); break;
+                case "3": SearchOptions.SearchingOptions(); break;
                 case "4": EndManagementSystem(); break;
                 default: Console.WriteLine("Please, select from the available options."); break;
             }
         }
-        //method which end the program.
+        //method which stop the program.
         private static void EndManagementSystem()
         {
             endProgram = false;

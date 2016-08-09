@@ -1,10 +1,11 @@
-﻿namespace HumanResourcesSystem
+﻿namespace HumanResourcesSystem.ProjectInfo
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using HumanResourcesSystem;
 
     public class Project
     {

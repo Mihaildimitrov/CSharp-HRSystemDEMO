@@ -5,11 +5,13 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using ProjectInfo;
+    using HumanResourcesOptions;
 
-    public static class SearchEmployeeOptions
+    public static class SearchOptions
     {
         public static bool endSearch = true;
-        public static void SearchOptions()
+        public static void SearchingOptions()
         {
             Console.Clear();
             string selectedSearchOptions;
@@ -107,35 +109,39 @@
             Console.Write("Please enter the firstname and the lastname of employee:");
             string employeeName = Console.ReadLine();
             var listEmployee = HumanResources.GetEmployees();
+            bool exist = false;
             // Check the name exist.
             foreach (var employee in listEmployee)
             {
                 if (employeeName.ToLower() == employee.FirstName.ToLower() + " " + employee.LastName.ToLower())
                 {
+                    exist = true;
                     Console.WriteLine("Employee with this name exist:");
                     Console.WriteLine("Name: {0} {1}, Position: {2}, WorkingProjectID: {3}, Salary: ${4}, EmployeeID: {5}",
                         employee.FirstName, employee.LastName, employee.PositionAtWork, employee.Project, employee.Salary, employee.EmployeeId);
                     StartUp.PrintCommand();
                     Console.ReadKey();
                     Console.WriteLine();
-                    Console.Clear(); 
-                }
-                else// If the name does not exist.
-                {
-                    Console.WriteLine("Employee with this name does not exist");
-                    StartUp.PrintCommand();
-                    Console.ReadKey();
-                    Console.WriteLine();
-                    Console.Clear(); 
+                    Console.Clear();
                 }
             }
+            // If the name does not exist.
+            if (!exist)
+            {
+                Console.WriteLine("Employee with this name does not exist");
+                StartUp.PrintCommand();
+                Console.ReadKey();
+                Console.WriteLine();
+                Console.Clear();
+            }
         }
-        // This method end search method.
+        // This method stops search method.
         private static void EndSearchOptions()
         {
             endSearch = false;
             Console.WriteLine("The end of search!");
         }
+        //Method checks if some work on the project.
         private static void EmployeeWorkingProject()
         {
             Console.Clear();
