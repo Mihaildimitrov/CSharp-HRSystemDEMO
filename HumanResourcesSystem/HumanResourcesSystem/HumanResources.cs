@@ -9,7 +9,7 @@
     public static class HumanResources
     {
         //this list contains all emlpoyee in company.
-        public static List<Employee> allEmployees = new List<Employee>();
+        private static List<Employee> allEmployees = new List<Employee>();
         //Employee ID
         private static int nextId = 1;
 

@@ -44,7 +44,12 @@
                 case "4": ImmediateSuperior(); break;
                 case "5": SearchByName(); break;
                 case "6": EndSearchOptions(); break;
-                default: Console.WriteLine("Please, select from the available options."); ; break;
+                default: 
+                    Console.WriteLine("Please, select from the available options.");
+                    StartUp.PrintCommand();
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
             }
         }
         // method which print immediate superior of any employee.
@@ -54,14 +59,15 @@
             HumanResources.PrintAllEmployee();
             //Pick employeeId.
             Console.Write("Please select employee ID: ");
+            var listEmployee = HumanResources.GetEmployees();
             int employeeIDForSelect = int.Parse(Console.ReadLine());
-            if (employeeIDForSelect > HumanResources.allEmployees.Count)
+            if (employeeIDForSelect > listEmployee.Count)
             {
                 Console.WriteLine("No such employee!");
                 StartUp.PrintCommand();
                 Console.ReadKey();
             }
-            foreach (var employee in HumanResources.allEmployees)
+            foreach (var employee in listEmployee)
 	        {
 	            	if (employeeIDForSelect == employee.EmployeeId)
 	                {
@@ -100,8 +106,9 @@
             // Enter name for search.
             Console.Write("Please enter the firstname and the lastname of employee:");
             string employeeName = Console.ReadLine();
+            var listEmployee = HumanResources.GetEmployees();
             // Check the name exist.
-            foreach (var employee in HumanResources.allEmployees)
+            foreach (var employee in listEmployee)
             {
                 if (employeeName.ToLower() == employee.FirstName.ToLower() + " " + employee.LastName.ToLower())
                 {

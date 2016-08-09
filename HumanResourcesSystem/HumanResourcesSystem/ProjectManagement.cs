@@ -23,8 +23,15 @@ namespace HumanResourcesSystem
         // with this method add emlpoyee into project.
         public static void AssignEmployee(int projectId, Employee employee)
         {
-            var project = projects.FirstOrDefault(p => p.ProjectId == projectId);
-            project.AssignedEmployees.Add(employee);
+            foreach (var proj in projects)
+            {
+                if (proj.ProjectId == projectId)
+	            {
+                    proj.AssignedEmployees.Add(employee);
+	            }
+            }
+            //var project = projects.FirstOrDefault(p => p.ProjectId == projectId);
+            //project.AssignedEmployees.Add(employee);
         }
         //Print all projects.
         public static void PrintAllProjects()
