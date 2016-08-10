@@ -84,6 +84,55 @@
         // method print immediate superior.
         private static void CheckSuperior(string positionEmployee)
         {
+            //*********************************************
+            // New logic
+            // first should print the list of all employees!!!
+            Employee currentFirstEmployee = new Employee();
+            Employee currentSecondEmployee = new Employee();
+
+            var allEmp = HumanResources.GetEmployees();
+            Console.WriteLine("Please enter ID of the first employee");
+            int empFirstID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter ID of the second employee");
+            int empSecondID = int.Parse(Console.ReadLine());
+            foreach (var emp in allEmp)
+            {
+                if (emp.EmployeeId == empFirstID)
+                {
+                    currentFirstEmployee = emp;
+                    //break;
+                }
+                if (emp.EmployeeId == empSecondID)
+                {
+                    currentSecondEmployee = emp;
+                    //break;
+                }
+            }
+            //string firstEmpPosition = currentFirstEmployee.PositionAtWork;
+            //string secondEmpPosition = currentSecondEmployee.PositionAtWork;
+            int convertedPositionFirstEmp = ConvertPositionAtWork(currentFirstEmployee.PositionAtWork);
+            int convertedPositionSecondEmp = ConvertPositionAtWork(currentSecondEmployee.PositionAtWork);
+            // ConvertPositionAtWork() is method 
+            // If work on the same project
+            if (currentFirstEmployee.Project == currentSecondEmployee.Project)
+            {
+                //If both employee is between trainee and senior
+                if ((convertedPositionFirstEmp >=1 && convertedPositionFirstEmp <= 4) && (convertedPositionSecondEmp >= 1 && convertedPositionSecondEmp <= 4))
+                {
+                    //print superior is team lead
+                }
+                // If employee position is different
+                if (true)
+                {
+                    
+                }
+            }
+
+                
+
+            
+            // End new logic
+            //*********************************************
             switch (positionEmployee)
             {
                 case "trainee": Console.WriteLine("His supervisor is \"Team leader\""); break;
@@ -101,6 +150,32 @@
             Console.WriteLine();
             Console.Clear(); 
         }
+
+        private static int ConvertPositionAtWork(string pos)
+        {
+            int empPositionNumber = 0;
+
+            switch (pos)
+            {
+                case "trainee": empPositionNumber = 1; break;
+                case "junior":empPositionNumber = 2; break;
+                case "intermediate":empPositionNumber = 3; break;
+                case "senior":empPositionNumber = 4; break;
+                case "team leader":empPositionNumber = 5; break;
+                case "project manager":empPositionNumber = 6; break;
+                case "delivery director":empPositionNumber = 7; break;
+                case "ceo":empPositionNumber = 8; break;
+            }
+            return empPositionNumber;
+        }
+
+        private static void GetSuperiorSameProject()
+        {
+            
+        }
+
+
+
         // this method searching in list employee by name.
         private static void SearchByName()
         {
