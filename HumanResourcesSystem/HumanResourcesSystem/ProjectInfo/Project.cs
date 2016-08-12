@@ -2,14 +2,20 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using HumanResourcesSystem;
 
     public class Project
     {
+        private string deliveryDirectorName;
+
         //all prop for any project.
+        public string Ceo { get; set; }
+
+        public string DeliveryDirectorName
+        {
+            get { return this.deliveryDirectorName; }
+            set { this.deliveryDirectorName = value; }
+        }
+        
         public int ProjectId { get; set; }
 
         public string ProjectName { get; set; }

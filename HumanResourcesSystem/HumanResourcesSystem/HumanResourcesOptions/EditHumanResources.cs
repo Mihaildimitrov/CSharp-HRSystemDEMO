@@ -85,12 +85,13 @@
             //Print all employee
             HumanResources.PrintAllEmployee();
             Console.WriteLine("Assign to project: ");
-            //Pick employeeId
-            Console.Write("Please select employee ID:");
-            int employeeIDForEditProject = int.Parse(Console.ReadLine());
             //Pick project ID
             Console.Write("Please select project ID: ");
             int selectProjectId = int.Parse(Console.ReadLine());
+            //Pick employeeId
+            Console.Write("Please select employee ID:");
+            int employeeIDForEditProject = int.Parse(Console.ReadLine());
+            
             //Set project.
             var listEmployee = HumanResources.GetEmployees();
             foreach (var employee in listEmployee)
