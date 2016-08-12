@@ -21,6 +21,8 @@
 
             } while (endOfEdit);
         }
+
+
         //This method is a main logic for edit employee.
         private static void HandleEditInput(string selectedEditComand)
         {

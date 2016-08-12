@@ -6,7 +6,7 @@
 
     public static class HumanResources
     {
-        //this list contains all emlpoyee in company.
+        //This list contains all emlpoyees in company.
         private static List<Employee> allEmployees = new List<Employee>();
         //Employee ID
         private static int nextId = 1;

@@ -10,7 +10,7 @@
 
     class StartUp
     {
-        public static bool endProgram = true;
+        private static bool endProgram = true;
         static void Main()
         {
             string selectedCommand;
@@ -24,17 +24,42 @@
                 
             } while (endProgram);
         }
-        // Main method program.
+
+        
+        // Main method program. This method handle user input.
         private static void HandleInput(string selectedCommand)
         {
-            switch (selectedCommand)
+            if (selectedCommand == "1")
             {
-                case "1": HumanResources.HireEmployee(); break;
-                case "2": EditHumanResources.EditEmployee(); break;
-                case "3": SearchOptions.SearchingOptions(); break;
-                case "4": EndManagementSystem(); break;
-                default: Console.WriteLine("Please, select from the available options."); break;
+                HumanResources.HireEmployee();
             }
+            else if (selectedCommand == "2")
+            {
+                EditHumanResources.EditEmployee();
+            }
+            else if (selectedCommand == "3")
+            {
+                SearchOptions.SearchingOptions();
+            }
+            else if (selectedCommand == "4")
+            {
+                EndManagementSystem();   
+            }
+            else
+            {
+                Console.WriteLine("Please, select from the available options.");
+                PrintCommand();
+                Console.ReadKey();
+            }
+
+            //switch (selectedCommand)
+            //{
+            //    case "1": HumanResources.HireEmployee(); break;
+            //    case "2": EditHumanResources.EditEmployee(); break;
+            //    case "3": SearchOptions.SearchingOptions(); break;
+            //    case "4": EndManagementSystem(); break;
+            //    default: Console.WriteLine("Please, select from the available options."); break;
+            //}
         }
         //method which stop the program.
         private static void EndManagementSystem()
