@@ -55,7 +55,7 @@
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. For add employee.");
             Console.WriteLine("2. For edit information for employee.");
-            Console.WriteLine("3. For options search in employees and projects.");
+            Console.WriteLine("3. For search and print options.");
             Console.WriteLine("4. For end of program.");
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");

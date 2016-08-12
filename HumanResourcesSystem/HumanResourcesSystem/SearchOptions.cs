@@ -310,7 +310,7 @@
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. Print all employee.");
             Console.WriteLine("2. Print all projects.");
-            Console.WriteLine("3. Print all working on the project.");
+            Console.WriteLine("3. Print all employees working on the project.");
             Console.WriteLine("4. Print immediate superior of two employees.");
             Console.WriteLine("5. Search employee by name");
             Console.WriteLine("6. To end search");
