@@ -9,10 +9,10 @@
         //List of projects.
         private static List<Project> projects = new List<Project>
         {
-            new Project {ProjectId = 1, ProjectName = "Secret Project-1", DeliveryDirectorName = null, Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() },
-            new Project {ProjectId = 2, ProjectName = "Secret Project-2", DeliveryDirectorName = null, Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() },
-            new Project {ProjectId = 3, ProjectName = "Secret Project-3", DeliveryDirectorName = null, Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() },
-            new Project {ProjectId = 4, ProjectName = "Secret Project-4", DeliveryDirectorName = null, Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() }
+            new Project {ProjectId = 1, ProjectName = "Secret Project-1", DeliveryDirectorName = "Ryan Ortiz", Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() },
+            new Project {ProjectId = 2, ProjectName = "Secret Project-2", DeliveryDirectorName = "Emily Jackson", Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() },
+            new Project {ProjectId = 3, ProjectName = "Secret Project-3", DeliveryDirectorName = "Emily Jackson", Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() },
+            new Project {ProjectId = 4, ProjectName = "Secret Project-4", DeliveryDirectorName = "Ryan Ortiz", Ceo = "Richard Brown", AssignedEmployees = new List<Employee>() }
         };
         //Method which return all projects
         public static List<Project> GetProjects()

@@ -35,13 +35,33 @@
             }
             else if (selectedCommand == "2")
             {
-                EditHumanResources.EditEmployee();
+                Console.Clear();
+                HumanResources.PrintAllEmployee();
+                StartUp.PrintCommand();
+                Console.ReadKey();
+                Console.WriteLine();
+                Console.Clear(); 
             }
             else if (selectedCommand == "3")
             {
-                SearchOptions.SearchingOptions();
+                Console.Clear();
+                ProjectManagement.PrintAllProjects();
+                StartUp.PrintCommand();
+                Console.ReadKey();
+                Console.WriteLine();
+                Console.Clear(); 
             }
             else if (selectedCommand == "4")
+            {
+                HumanResources.EditEmployeeProject();
+            }
+            else if (selectedCommand == "5")
+            {
+                SearchDirectsSuperior.ImmediateSuperior();
+                PrintCommand();
+                Console.ReadKey();
+            }
+            else if (selectedCommand == "6")
             {
                 EndManagementSystem();   
             }
@@ -51,15 +71,6 @@
                 PrintCommand();
                 Console.ReadKey();
             }
-
-            //switch (selectedCommand)
-            //{
-            //    case "1": HumanResources.HireEmployee(); break;
-            //    case "2": EditHumanResources.EditEmployee(); break;
-            //    case "3": SearchOptions.SearchingOptions(); break;
-            //    case "4": EndManagementSystem(); break;
-            //    default: Console.WriteLine("Please, select from the available options."); break;
-            //}
         }
         //method which stop the program.
         private static void EndManagementSystem()
@@ -79,9 +90,11 @@
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
             Console.WriteLine("1. For add employee.");
-            Console.WriteLine("2. For edit information for employee.");
-            Console.WriteLine("3. For search and print options.");
-            Console.WriteLine("4. For end of program.");
+            Console.WriteLine("2. For print all employee.");
+            Console.WriteLine("3. For print all projects.");
+            Console.WriteLine("4. For assign employee in given project.");
+            Console.WriteLine("5. For print direct superior.");
+            Console.WriteLine("6. For end of program.");
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
