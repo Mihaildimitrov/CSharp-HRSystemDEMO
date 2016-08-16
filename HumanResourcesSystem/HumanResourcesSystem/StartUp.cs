@@ -24,8 +24,6 @@
                 
             } while (endProgram);
         }
-
-        
         // Main method program. This method handle user input.
         private static void HandleInput(string selectedCommand)
         {
@@ -89,12 +87,12 @@
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, select from the following options:");
-            Console.WriteLine("1. For add employee.");
-            Console.WriteLine("2. For print all employee.");
-            Console.WriteLine("3. For print all projects.");
-            Console.WriteLine("4. For assign employee in given project.");
-            Console.WriteLine("5. For print direct superior.");
-            Console.WriteLine("6. For end of program.");
+            Console.WriteLine("1. Add employee.");
+            Console.WriteLine("2. Print all employee.");
+            Console.WriteLine("3. Print all projects.");
+            Console.WriteLine("4. Assign employee in given project.");
+            Console.WriteLine("5. Print direct superior.");
+            Console.WriteLine("6. End of program.");
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
