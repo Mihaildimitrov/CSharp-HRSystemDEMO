@@ -7,7 +7,7 @@
     public static class HumanResources
     {
         //This list contains all emlpoyees in company.
-        private static List<Employee> allEmployees = new List<Employee>()
+        private static List<Employee> allEmployeesInCompany = new List<Employee>()
         {
             new Employee {FirstName = "William", LastName = "Smith", PositionAtWork = "trainee", Project = 1, EmployeeId = 1 },
             new Employee {FirstName = "Daniel", LastName = "Lee", PositionAtWork = "junior", Project = 1, EmployeeId = 2 },
@@ -24,8 +24,8 @@
             new Employee {FirstName = "Victoria", LastName = "Johnson", PositionAtWork = "project manager", Project = 2, EmployeeId = 13 },
             new Employee {FirstName = "Ryan", LastName = "Ortiz", PositionAtWork = "delivery director", Project = 2, EmployeeId = 14 }
         };
-        //Employee ID
-        private static int nextId = 15;
+        //Employee ID.
+        private static int nextIdOfEmployee = 15;
         // This method create employees.
         public static void HireEmployee()
         {
@@ -37,24 +37,24 @@
             newEmployee.LastName = Console.ReadLine();
             Console.Write("Please, enter the employee position: ");
             newEmployee.PositionAtWork = Console.ReadLine();
-            newEmployee.EmployeeId = nextId;
-            allEmployees.Add(newEmployee);
-            nextId++;
+            newEmployee.EmployeeId = nextIdOfEmployee;
+            allEmployeesInCompany.Add(newEmployee);
+            nextIdOfEmployee++;
         }
 
-        // this method Assign employee in project
+        // This method Assign employee in project.
         public static void EditEmployeeProject()
         {
             Console.Clear();
-            //Print all projects
+            //Print all projects in company.
             ProjectManagement.PrintAllProjects();
-            //Print all employee
+            //Print all employee in company.
             HumanResources.PrintAllEmployee();
             Console.WriteLine("Assign to project: ");
-            //Pick project ID
+            //Pick project ID.
             Console.Write("Please select project ID: ");
             int selectProjectId = int.Parse(Console.ReadLine());
-            //Pick employeeId
+            //Pick employee Id.
             Console.Write("Please select employee ID:");
             int employeeIDForEditProject = int.Parse(Console.ReadLine());
 
@@ -72,7 +72,7 @@
         // This method return list of all employee in variable.
         public static List<Employee> GetEmployees()
         {
-            return allEmployees;
+            return allEmployeesInCompany;
         }
         //Print all emlpoyee.
         public static void PrintAllEmployee()
@@ -80,14 +80,14 @@
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("*******************************************");
             Console.ForegroundColor = ConsoleColor.White;
-            if (allEmployees.Count < 1)
+            if (allEmployeesInCompany.Count < 1)
             {
                 Console.WriteLine("No employees hired yet.");
             }
             else
             {
                 Console.WriteLine("List of all employees:");
-                foreach (var emp in allEmployees)
+                foreach (var emp in allEmployeesInCompany)
                 {
                     Console.WriteLine("Name: {0} {1}, Position: {2}, ProjectID: {3}, EmployeeID: {4}", emp.FirstName, emp.LastName, emp.PositionAtWork, emp.Project, emp.EmployeeId);
                 }

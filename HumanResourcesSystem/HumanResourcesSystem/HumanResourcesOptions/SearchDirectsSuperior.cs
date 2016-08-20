@@ -9,19 +9,19 @@
 
     class SearchDirectsSuperior
     {
-         // method which print immediate superior of two employees.
+         // Method which print immediate superior of two employees.
         public static void ImmediateSuperior()
         {
             Console.Clear();
-            var allEmp = HumanResources.GetEmployees();
-            if (allEmp.Count < 1)
+            var allEmployeesInCompany = HumanResources.GetEmployees();
+            if (allEmployeesInCompany.Count < 1)
             {
                 Console.WriteLine("No such employee!");
                 StartUp.PrintCommand();
                 Console.ReadKey();
                 StartUp.PrintMainMenu();
             }
-            if (allEmp.Count == 1)
+            if (allEmployeesInCompany.Count == 1)
             {
                 Console.WriteLine("Have only one employee!");
                 StartUp.PrintCommand();
@@ -29,75 +29,75 @@
                 StartUp.PrintMainMenu();
             }
             HumanResources.PrintAllEmployee();
-            //Pick employeesId.
+            //Pick employees Id.
             Employee currentFirstEmployee = new Employee();
             Employee currentSecondEmployee = new Employee();
             Console.WriteLine("Please select employees ID: ");
             Console.Write("Please enter ID of the first employee: ");
-            int empFirstID = int.Parse(Console.ReadLine());
+            int firstEmployeeID = int.Parse(Console.ReadLine());
             Console.Write("Please enter ID of the second employee: ");
-            int empSecondID = int.Parse(Console.ReadLine());
+            int secondEmployeeID = int.Parse(Console.ReadLine());
             Console.WriteLine();
-            foreach (var emp in allEmp)
+            foreach (var emp in allEmployeesInCompany)
             {
-                if (emp.EmployeeId == empFirstID)
+                if (emp.EmployeeId == firstEmployeeID)
                 {
                     currentFirstEmployee = emp;
                 }
-                if (emp.EmployeeId == empSecondID)
+                if (emp.EmployeeId == secondEmployeeID)
                 {
                     currentSecondEmployee = emp;
                 }
             }
-            CheckSuperior(currentFirstEmployee, currentSecondEmployee);
+            CheckSuperiorOfEmployees(currentFirstEmployee, currentSecondEmployee);
         }
 
-        // method that checks whether employees are working on the same project or not
-        private static void CheckSuperior(Employee currentFirstEmployee, Employee currentSecondEmployee)
+        // Method that checks whether employees are working on the same project or not.
+        private static void CheckSuperiorOfEmployees(Employee currentFirstEmployee, Employee currentSecondEmployee)
         {
-            int convertedPositionFirstEmp = ConvertPositionAtWork(currentFirstEmployee.PositionAtWork.ToLower());
-            int convertedPositionSecondEmp = ConvertPositionAtWork(currentSecondEmployee.PositionAtWork.ToLower());
-            // If work on the same project
+            int convertedPositionFirstEmployee = ConvertPositionAtWork(currentFirstEmployee.PositionAtWork.ToLower());
+            int convertedPositionSecondEmployee = ConvertPositionAtWork(currentSecondEmployee.PositionAtWork.ToLower());
+            // If work on the same project.
             if (currentFirstEmployee.Project == currentSecondEmployee.Project)
             {
-                EmployeeWorkOnSameProject(currentFirstEmployee, convertedPositionFirstEmp, convertedPositionSecondEmp);
+                EmployeeWorkOnSameProject(currentFirstEmployee, convertedPositionFirstEmployee, convertedPositionSecondEmployee);
             }
-            // If work on the different projects
+            // If work on the different projects.
             if (currentFirstEmployee.Project != currentSecondEmployee.Project)
             {
-                EmployeeWorkOnDifferentProjects(currentFirstEmployee, currentSecondEmployee, convertedPositionFirstEmp, convertedPositionSecondEmp);
+                EmployeeWorkOnDifferentProjects(currentFirstEmployee, currentSecondEmployee, convertedPositionFirstEmployee, convertedPositionSecondEmployee);
             }
         }
 
-        //This method print direct superior if employees works on different projects
+        //This method print direct superior if employees works on different projects.
         private static void EmployeeWorkOnDifferentProjects(Employee currentFirstEmployee, Employee currentSecondEmployee, int convertedPositionFirstEmp, int convertedPositionSecondEmp)
         {
-            int firstEmpProj = currentFirstEmployee.Project;
-            int secondEmpProj = currentSecondEmployee.Project;
-            var allProj = ProjectManagement.GetProjects();
+            int firstEmployeeProject = currentFirstEmployee.Project;
+            int secondEmployeeProject = currentSecondEmployee.Project;
+            var allProjects = ProjectManagement.GetProjects();
             string firstEmpProjectDeliveryDirector = null;
             string secondEmpProjectDeliveryDirector = null;
 
             // If both employees is not a Delivery director.
             if (convertedPositionFirstEmp < 7 && convertedPositionSecondEmp < 7)
             {
-                foreach (var proj in allProj)
+                foreach (var proj in allProjects)
                 {
-                    if (firstEmpProj == proj.ProjectId)
+                    if (firstEmployeeProject == proj.ProjectId)
                     {
                         firstEmpProjectDeliveryDirector = proj.DeliveryDirectorName;
                     }
-                    if (secondEmpProj == proj.ProjectId)
+                    if (secondEmployeeProject == proj.ProjectId)
                     {
                         secondEmpProjectDeliveryDirector = proj.DeliveryDirectorName;
                     }
                 }
-                // if both DD is same, Print superior is Delivery director
+                // If both DD is same, Print superior is Delivery director.
                 if (firstEmpProjectDeliveryDirector == secondEmpProjectDeliveryDirector)
                 {
                     Console.WriteLine("Their superior is Delivery director with name {0}", firstEmpProjectDeliveryDirector);
                 }
-                // If both DD is different Print superior is CEO
+                // If both DD is different Print superior is CEO.
                 else
                 {
                     Console.WriteLine("Their superior is CEO with name Richard Brown");
@@ -106,23 +106,23 @@
             // If one of the two employees is Delivery director.
             if (convertedPositionFirstEmp == 7 || convertedPositionSecondEmp == 7)
             {
-                //Print superior is CEO
+                //Print superior is CEO.
                 Console.WriteLine("Their superior is CEO with name Richard Brown");
             }
         }
 
-        //This method print direct superior if employees works on same project
+        //This method print direct superior if employees works on same project.
         private static void EmployeeWorkOnSameProject(Employee currentFirstEmployee, int convertedPositionFirstEmp, int convertedPositionSecondEmp)
         {
-            int workingProjectId = currentFirstEmployee.Project;
-            int higherPosition = 0;
-            //If both employee is between trainee and senior
+            int workingProjectIdOfEmployees = currentFirstEmployee.Project;
+            int higherEmployeePosition = 0;
+            //If both employee is between trainee and senior.
             if (convertedPositionFirstEmp == 4 && convertedPositionSecondEmp == 4)
             {
                 var listEmployee = HumanResources.GetEmployees();
                 foreach (var emp in listEmployee)
                 {
-                    if (emp.Project == workingProjectId)
+                    if (emp.Project == workingProjectIdOfEmployees)
                     {
                         if (emp.PositionAtWork == "team leader")
                         {
@@ -131,47 +131,48 @@
                     }
                 }
             }
-            else // If employee position is different or same.
+            // If employee position is different or same.
+            else 
             {
                 if (convertedPositionFirstEmp > convertedPositionSecondEmp)
                 {
-                    higherPosition = convertedPositionFirstEmp + 1;
-                    PrintSuperior(higherPosition, workingProjectId);
+                    higherEmployeePosition = convertedPositionFirstEmp + 1;
+                    PrintSuperior(higherEmployeePosition, workingProjectIdOfEmployees);
                 }
                 if (convertedPositionSecondEmp >= convertedPositionFirstEmp)
                 {
-                    higherPosition = convertedPositionSecondEmp + 1;
-                    PrintSuperior(higherPosition, workingProjectId);
+                    higherEmployeePosition = convertedPositionSecondEmp + 1;
+                    PrintSuperior(higherEmployeePosition, workingProjectIdOfEmployees);
                 }
             }
         }
 
         // This method print superior of two employees.
-        private static void PrintSuperior(int higherPosition, int workingProjectId)
+        private static void PrintSuperior(int higherPositionOfEmployee, int workingProjectId)
         {
-            if (higherPosition == 8)
+            if (higherPositionOfEmployee == 8)
             {
                 Console.WriteLine("Their superior is CEO with name Richard Brown");
             }
             else
             {
                 var listEmployee = HumanResources.GetEmployees();
-                string position = null;
-                if (higherPosition == 6)
+                string positionOfEmployee = null;
+                if (higherPositionOfEmployee == 6)
                 {
-                    position = "project manager";
+                    positionOfEmployee = "project manager";
                 }
-                if (higherPosition == 7)
+                if (higherPositionOfEmployee == 7)
 	            {
-                    position = "delivery director";
+                    positionOfEmployee = "delivery director";
 	            }
                 foreach (var emp in listEmployee)
                 {
                     if (emp.Project == workingProjectId)
                     {
-                        if (emp.PositionAtWork == position)
+                        if (emp.PositionAtWork == positionOfEmployee)
                         {
-                            Console.WriteLine("Their superior is {0} with name {1}", position, emp.FirstName + " " + emp.LastName);
+                            Console.WriteLine("Their superior is {0} with name {1}", positionOfEmployee, emp.FirstName + " " + emp.LastName);
                         }
                     }
                 }
@@ -179,20 +180,20 @@
         }
 
         // This method converted employye position in number.
-        private static int ConvertPositionAtWork(string pos)
+        private static int ConvertPositionAtWork(string positionOfEmployee)
         {
-            int empPositionNumber = 0;
-            switch (pos)
+            int empoyeePositionNumber = 0;
+            switch (positionOfEmployee)
             {
-                case "trainee": empPositionNumber = 4; break;
-                case "junior":empPositionNumber = 4; break;
-                case "intermediate":empPositionNumber = 4; break;
-                case "senior":empPositionNumber = 4; break;
-                case "team leader":empPositionNumber = 5; break;
-                case "project manager":empPositionNumber = 6; break;
-                case "delivery director":empPositionNumber = 7; break;
+                case "trainee": empoyeePositionNumber = 4; break;
+                case "junior":empoyeePositionNumber = 4; break;
+                case "intermediate":empoyeePositionNumber = 4; break;
+                case "senior":empoyeePositionNumber = 4; break;
+                case "team leader":empoyeePositionNumber = 5; break;
+                case "project manager":empoyeePositionNumber = 6; break;
+                case "delivery director":empoyeePositionNumber = 7; break;
             }
-            return empPositionNumber;
+            return empoyeePositionNumber;
         }
     }
 }

@@ -7,7 +7,7 @@
     {
         private string deliveryDirectorName;
 
-        //all prop for any project.
+        //All prop for any project.
         public string Ceo { get; set; }
 
         public string DeliveryDirectorName
@@ -20,6 +20,6 @@
 
         public string ProjectName { get; set; }
 
-        public List<Employee> AssignedEmployees { get; set; }
+        public List<Employee> AssignedEmployeesToProject { get; set; }
     }
 }

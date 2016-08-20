@@ -13,25 +13,25 @@
         private static bool endProgram = true;
         static void Main()
         {
-            string selectedCommand;
+            string selectedCommandOfHr;
             do
             {
-                //Print main menu
+                //Print main menu.
                 PrintMainMenu();
-                // main logic program.
-                selectedCommand = Console.ReadLine();
-                HandleInput(selectedCommand);
+                // Main logic program.
+                selectedCommandOfHr = Console.ReadLine();
+                HandleInput(selectedCommandOfHr);
                 
             } while (endProgram);
         }
         // Main method program. This method handle user input.
-        private static void HandleInput(string selectedCommand)
+        private static void HandleInput(string selectedCommandOfHr)
         {
-            if (selectedCommand == "1")
+            if (selectedCommandOfHr == "1")
             {
                 HumanResources.HireEmployee();
             }
-            else if (selectedCommand == "2")
+            else if (selectedCommandOfHr == "2")
             {
                 Console.Clear();
                 HumanResources.PrintAllEmployee();
@@ -40,7 +40,7 @@
                 Console.WriteLine();
                 Console.Clear(); 
             }
-            else if (selectedCommand == "3")
+            else if (selectedCommandOfHr == "3")
             {
                 Console.Clear();
                 ProjectManagement.PrintAllProjects();
@@ -49,17 +49,17 @@
                 Console.WriteLine();
                 Console.Clear(); 
             }
-            else if (selectedCommand == "4")
+            else if (selectedCommandOfHr == "4")
             {
                 HumanResources.EditEmployeeProject();
             }
-            else if (selectedCommand == "5")
+            else if (selectedCommandOfHr == "5")
             {
                 SearchDirectsSuperior.ImmediateSuperior();
                 PrintCommand();
                 Console.ReadKey();
             }
-            else if (selectedCommand == "6")
+            else if (selectedCommandOfHr == "6")
             {
                 EndManagementSystem();   
             }
@@ -70,7 +70,7 @@
                 Console.ReadKey();
             }
         }
-        //method which stop the program.
+        //Method which stop the program.
         private static void EndManagementSystem()
         {
             endProgram = false;
@@ -79,7 +79,7 @@
             Console.WriteLine("The application was stopped!");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        // method which print main menu.
+        // Method which print main menu.
         public static void PrintMainMenu()
         {
             Console.Clear();
